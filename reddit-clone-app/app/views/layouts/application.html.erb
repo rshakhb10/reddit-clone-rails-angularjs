@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RedditCloneApp</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>  
+  <script src="app.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body ng-app="newsApp" ng-controller="MainCtrl">
+  <div class="container">
+    <h1>Posts</h1>
+    <div>
+      {{test}}
+    </div>
+    <div ng-repeat="post in posts">
+      <button ng-click="incrementVote(post)" class="btn btn-success">+</button>
+      {{post.title}} {{post.upvotes}}
+    </div>
+
+
+    <form ng-submit="addPost()">
+      <input type="text" ng-model="title"></input>
+      <button type="submit">Post</button>
+    </form>
+
+  </div>
+</body>
+</html>
